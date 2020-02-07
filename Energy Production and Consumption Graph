@@ -1,0 +1,31 @@
+import requests
+from pprint import pprint
+from matplotlib import pyplot as plt
+
+mydate=[]
+userset=[]
+req=requests.get(url="https://www.quandl.com/api/v3/datasets/BP/OIL_CONSUM_IND.json?api_key=L82_HrgpWC15TAkFh1EX")
+data=req.json()
+mydata=data['dataset']['data']
+date=[i[0] for i in mydata]
+usefuldata=[i[1] for i in reversed(mydata)]
+
+for i in range(0,len(usefuldata),5): 
+    userset.append(usefuldata[i])
+
+for i in reversed(date):
+    i=i.replace("-12-31","")
+    if int(i)%5==0:
+        mydate.append(i)
+
+plt.plot(mydate,userset,color="k",marker="o")
+plt.tight_layout()
+plt.grid()
+plt.show()
+     
+    
+
+
+     
+
+
