@@ -1,0 +1,17 @@
+from matplotlib import pyplot as plt
+import pandas
+
+mydata=pandas.read_csv("mydata.csv")
+views=mydata["view_count"]
+likes=mydata["likes"]
+ratio=mydata["ratio"]
+
+plt.scatter(views,likes,c=ratio,edgecolors="black")
+cbar=plt.colorbar()
+cbar.set_label("Likes/Dislike Ratio")
+plt.title("Youtube Trending")
+plt.xlabel("Views")
+plt.ylabel("Likes")
+plt.xscale("log")
+plt.yscale("log")
+plt.show()
