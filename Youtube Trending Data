@@ -1,7 +1,7 @@
 from matplotlib import pyplot as plt
 import pandas
 
-mydata=pandas.read_csv("mydata.csv")
+mydata=pandas.read_csv("YoutubeTrending.csv") #get csv file from the   https://github.com/themnvrao76/matplotlib-/blob/master/YoutubeTrending.csv
 views=mydata["view_count"]
 likes=mydata["likes"]
 ratio=mydata["ratio"]
